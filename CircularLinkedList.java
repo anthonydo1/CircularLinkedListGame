@@ -33,7 +33,7 @@ public class CircularLinkedList {
 		System.out.println("Freeing prisoner...");
 		this.printCircularLinkedList();
 		Node current = head;
-		
+
 		while (count != 1) {
 			for (int i = 0; i < num; i++) {
 				current = current.getNext();
@@ -45,7 +45,7 @@ public class CircularLinkedList {
 			this.printCircularLinkedList();
 		}
 		
-		return current.getData();
+		return head.getData();
 	}
 	
 	
@@ -83,6 +83,7 @@ public class CircularLinkedList {
 		} else if (node == head) {
 			head.getNext().setPrev(tail);
 			head = head.getNext();
+			tail.setNext(head);
 		} else if (node == tail) {
 			tail.getPrev().setNext(head);
 			tail = tail.getPrev();
@@ -94,6 +95,7 @@ public class CircularLinkedList {
 		
 		count--;
 	}
+	
 	
 	
 	/**
@@ -110,8 +112,25 @@ public class CircularLinkedList {
 	
 	
 	public static void main(String[] args) {
-		CircularLinkedList linkedlist = new CircularLinkedList(3);
-		System.out.println("\nPrisoner " + linkedlist.getFreePrisoner(2) + " is granted freedom.");
+		CircularLinkedList linkedlist = new CircularLinkedList(6);
+		System.out.println("\nPrisoner " + linkedlist.getFreePrisoner(2) + " is granted freedom. Expected: 1 \n");
+		System.out.println("-------------------------------------------------");
+		
+		CircularLinkedList linkedlist2 = new CircularLinkedList(1);
+		System.out.println("\nPrisoner " + linkedlist2.getFreePrisoner(9) + " is granted freedom. Expected: 1 \n");
+		System.out.println("-------------------------------------------------");
+		
+		CircularLinkedList linkedlist3 = new CircularLinkedList(7);
+		System.out.println("\nPrisoner " + linkedlist3.getFreePrisoner(7) + " is granted freedom. Expected: 4 \n");
+		System.out.println("-------------------------------------------------");
+		
+		CircularLinkedList linkedlist4 = new CircularLinkedList(12);
+		System.out.println("\nPrisoner " + linkedlist4.getFreePrisoner(8) + " is granted freedom. Expected: 2 \n");
+		System.out.println("-------------------------------------------------");
+		
+		CircularLinkedList linkedlist5 = new CircularLinkedList(5);
+		System.out.println("\nPrisoner " + linkedlist5.getFreePrisoner(1) + " is granted freedom. Expected: 3 \n");
+		System.out.println("-------------------------------------------------");
 	}
 	
 }
