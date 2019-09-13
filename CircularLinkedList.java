@@ -40,6 +40,7 @@ public class CircularLinkedList {
 			node.setNext(head);
 			tail.setNext(node);
 			tail = node;
+			head.setPrev(node);
 		}
 		
 		size++;

@@ -56,9 +56,6 @@ public class Prison {
 		for (int i = 1; i <= num; i++) {
 			list.add(i);
 		}
-		
-		list.getTail().setNext(list.getHead());
-		list.getHead().setPrev(list.getTail());
 	}
 	
 	
